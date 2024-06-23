@@ -23,10 +23,16 @@ dependencies {
 	testImplementation group: 'net.runelite', name:'jshell', version: runeLiteVersion
 }
 
-group = 'com.example'
+group = 'com.tomaspinho'
 version = '1.0-SNAPSHOT'
 
 tasks.withType(JavaCompile) {
 	options.encoding = 'UTF-8'
 	options.release.set(11)
+}
+
+task run(type: JavaExec) {
+  classpath sourceSets.test.runtimeClasspath
+	jvmArgs "-ea"
+  main = "com.tomaspinho.AttackCounterPluginTest"
 }
